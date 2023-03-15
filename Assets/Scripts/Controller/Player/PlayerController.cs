@@ -1,18 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
+using Common;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Controller.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerController : TankController
     {
-        
+        float v;
+        float h;
+        Vector2 mousePoint;
+        Vector3 mousePointWorld;
+        private void Update()
+        {
+            v = Input.GetAxis("Vertical");
+            h = Input.GetAxis("Horizontal");
+            Vector3 direction = new Vector3(h,v);
+            Moving(direction);
+
+            mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            mousePointWorld = new Vector3(mousePoint.x, mousePoint.y) - gun.position;
+            RotateGun(mousePointWorld);
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+            }
+        }
+
+        protected override void TankDamage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void OnHit(float damage)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public class Player : SingletonMonobehaviour<PlayerController>
     {
-        
+    
     }
 }

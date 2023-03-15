@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
+namespace Base
 {
-    protected float speed;
-
-    protected void Moving(Vector3 direction)
+    public class MovementController : MonoBehaviour
     {
-        transform.position += direction * speed * Time.deltaTime;
+        protected float speed;
+
+        protected void Moving(Vector3 direction)
+        {
+            transform.position += direction * speed * Time.deltaTime;
+        }
     }
 }

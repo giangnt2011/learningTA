@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Common;
 
-public class EnemyController : MonoBehaviour
+namespace Controller.Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyController : TankController
     {
-        
-    }
+        protected override void TankDamage()
+        {
+            throw new System.NotImplementedException();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void OnHit(float damage)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

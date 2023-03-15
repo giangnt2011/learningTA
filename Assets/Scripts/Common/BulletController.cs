@@ -1,18 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Base;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletController : MovementController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float damage;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        Moving(transform.up);
     }
 }

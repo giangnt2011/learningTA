@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+using Controller.Enemy;
 using UnityEngine;
 
-public class CreateController : MonoBehaviour
+namespace Controller.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CreateController : MonoBehaviour
     {
-        
+        [SerializeField] private GameObject explosionPref;
+        [SerializeField] private BulletController bulletPref;
+        [SerializeField] private EnemyController enemyPref;
+
+        public BulletController CreateBullet(Transform tranShoot)
+        {
+            return Instantiate(bulletPref, tranShoot.position, tranShoot.rotation);
+        }
+
+        public void CreateExplosion(Transform pos)
+        {
+            Instantiate(explosionPref, pos.position, pos.rotation);
+        }
+
+        public EnemyController CreateEnemy(Transform pos)
+        {
+            return Instantiate(enemyPref, pos.position, pos.rotation);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public class Creator : SingletonMonobehaviour<CreateController>{}
 }

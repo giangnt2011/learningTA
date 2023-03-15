@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Singleton : MonoBehaviour
+namespace DesignPattern
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Singleton<T> where T : class, new()
     {
-        
-    }
+        private static T instance = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public static T Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new T();
+                return instance;
+            }
+        }
+
     }
 }

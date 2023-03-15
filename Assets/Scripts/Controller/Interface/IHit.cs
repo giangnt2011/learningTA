@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IHit
+namespace Controller.Interface
 {
-    void OnHit(float damage);
+    public interface IHit
+    {
+        void OnHit(float damage);
+    }
 }
