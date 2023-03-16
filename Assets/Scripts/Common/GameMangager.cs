@@ -2,6 +2,11 @@ using UnityEngine;
 
 namespace Common
 {
+    public class GameKey
+    {
+        public const string ENEMY_DIE = "EnemyDie";
+        public const string NEXT_STAGE = "Next_Stage";
+    }
     public class GameMangager : MonoBehaviour
     {
         // Start is called before the first frame update

@@ -1,4 +1,6 @@
 using Common;
+using Controller.Enemy;
+using DesignPattern;
 using UnityEngine;
 
 namespace Controller.Player
@@ -9,6 +11,14 @@ namespace Controller.Player
         float h;
         Vector2 mousePoint;
         Vector3 mousePointWorld;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            levelController.SetLevel(1);
+            Observer.Instance.AddObserver(GameKey.ENEMY_DIE, OnEnemyDie);
+        }
+
         private void Update()
         {
             v = Input.GetAxis("Vertical");
@@ -26,14 +36,20 @@ namespace Controller.Player
             }
         }
 
-        protected override void TankDamage()
+        protected override void TankDestroy()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("You Lose");
         }
 
         public override void OnHit(float damage)
         {
-            throw new System.NotImplementedException();
+            hpController.TakeDamge(damage);
+        }
+
+        void OnEnemyDie(object data)
+        {
+            EnemyController enemy = (EnemyController)data;
+            levelController.UpdateEXP(enemy.currentLevel*20);
         }
     }
 

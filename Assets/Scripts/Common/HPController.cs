@@ -1,19 +1,22 @@
+using Base;
 using UnityEngine;
 
 namespace Common
 {
-    public class HPController : MonoBehaviour
+    public class HPController : ProcessingController
     {
-        // Start is called before the first frame update
-        void Start()
+        public delegate void Die();
+        public Die die;
+
+        public void InitValue(float maxValue)
         {
-        
+            InitiateValue(maxValue);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void TakeDamge(float damage)
         {
-        
+            ChangeValue(currentValue - damage);
+            if(currentValue == 0 && die != null) { die(); }
         }
     }
 }

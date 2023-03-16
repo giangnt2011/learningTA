@@ -8,6 +8,8 @@ namespace Controller.Player
         [SerializeField] private GameObject explosionPref;
         [SerializeField] private BulletController bulletPref;
         [SerializeField] private EnemyController enemyPref;
+        [SerializeField] private WaveController wavePref;
+
 
         public BulletController CreateBullet(Transform tranShoot)
         {
@@ -16,12 +18,17 @@ namespace Controller.Player
 
         public void CreateExplosion(Transform pos)
         {
-            Instantiate(explosionPref, pos.position, pos.rotation);
+            Destroy(Instantiate(explosionPref, pos.position, pos.rotation), 0.5f);
         }
 
-        public EnemyController CreateEnemy(Transform pos)
+        public EnemyController CreateEnemy(Vector3 pos)
         {
-            return Instantiate(enemyPref, pos.position, pos.rotation);
+            return Instantiate(enemyPref, pos, Quaternion.identity);
+        }
+
+        public WaveController CreateWave(Vector3 pos)
+        {
+            return Instantiate(wavePref, pos, Quaternion.identity);
         }
     }
 
