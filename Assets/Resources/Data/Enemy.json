@@ -2,12 +2,12 @@
     "data":
     [
         {
-            "speed": 1,
+            "speed": 10,
             "damage": 1,
             "HP": 10
         },
         {
-            "speed": 2,
+            "speed": 15,
             "damage": 2,
             "HP": 20
         }

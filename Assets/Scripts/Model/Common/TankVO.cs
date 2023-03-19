@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Common;
+using SimpleJSON;
 using UnityEngine;
 
-public class TankVO : MonoBehaviour
+public class TankVO : BaseVO
 {
-    // Start is called before the first frame update
-    void Start()
+    public TankInfo GetTankInfo(int level)
     {
-        
-    }
+        JSONArray dataArray = Data.AsArray;
+        if (level > dataArray.Count)
+        {
+            level = dataArray.Count;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return JsonUtility.FromJson<TankInfo>(dataArray[level - 1].ToString());
     }
 }

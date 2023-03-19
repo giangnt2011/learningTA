@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using DesignPattern;
+using Model.VO;
 using UnityEngine;
 
-public class DataController : MonoBehaviour
+public class DataController : Singleton<DataController>
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerVO playerVO;
+    public EnemyVO enemyVO;
+    public DataController()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerVO = new PlayerVO();
+        enemyVO = new EnemyVO();
     }
 }

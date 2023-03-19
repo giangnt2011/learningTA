@@ -1,5 +1,6 @@
 using Common;
 using DesignPattern;
+using Model.VO;
 using UnityEngine;
 
 namespace Controller.Enemy
@@ -14,6 +15,8 @@ namespace Controller.Enemy
         public float damage;
         public int levelEnemy;
 
+
+        protected override TankVO tankVo => DataController.Instance.enemyVO;
 
         protected override void Awake()
         {

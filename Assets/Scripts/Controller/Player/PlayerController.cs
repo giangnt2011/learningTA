@@ -12,6 +12,8 @@ namespace Controller.Player
         Vector2 mousePoint;
         Vector3 mousePointWorld;
 
+        protected override TankVO tankVo => DataController.Instance.playerVO;
+
         protected override void Awake()
         {
             base.Awake();

@@ -1,3 +1,4 @@
+ 
 using Base;
 using Controller.Interface;
 using Controller.Player;
@@ -17,13 +18,15 @@ namespace Common
 
     public abstract class TankController : MovementController, IHit
     {
-        [SerializeField] protected TankInfo[] infos;
+        //dkafka
         [SerializeField] protected Transform gun;
         [SerializeField] protected Transform tranShoot;
         [SerializeField] protected Transform tank;
         [SerializeField] protected HPController hpController;
         [SerializeField] protected LevelController levelController;
         public TankInfo _tankInfo;
+
+        protected abstract TankVO tankVo { get; }
         public float currentLevel
         {
             get { return levelController.Level; }
@@ -58,8 +61,9 @@ namespace Common
         }
         public void OnUpLevel(int level)
         {
-            if (level > infos.Length) { return; }
-            _tankInfo = infos[level-1];
+            _tankInfo = tankVo.GetTankInfo(level);
+            // if (level > infos.Length) { return; }
+            // _tankInfo = infos[level-1];
             speed = _tankInfo.speed;
             hpController.InitValue(_tankInfo.MaxHP);
             levelController.InitMaxEXP(_tankInfo.MaxEXP);
