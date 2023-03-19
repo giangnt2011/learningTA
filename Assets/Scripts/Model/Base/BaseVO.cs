@@ -11,9 +11,8 @@ public class BaseVO
         get { return data; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadData(string dataName)
     {
-        
+        data = JSON.Parse(Resources.Load<TextAsset>("Data/" + dataName).text)["data"];
     }
 }
