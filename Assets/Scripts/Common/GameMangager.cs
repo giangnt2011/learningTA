@@ -6,6 +6,7 @@ namespace Common
     {
         public const string ENEMY_DIE = "EnemyDie";
         public const string NEXT_STAGE = "Next_Stage";
+        public const string SHOOT = "Shoot";
     }
     public class GameMangager : MonoBehaviour
     {
