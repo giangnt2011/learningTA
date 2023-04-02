@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bfcbf90d806294f5c84534afcf54b77e
+  m_SerializeEntries:
+  - m_GUID: 68d2dc7459f915645b631d32a45089f1
+    m_Address: Assets/Resources_moved/import/PNG/Retina
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - images
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f0e90c0c7ddfb45e0b0448fbe9252505, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f82d4801f18fe4286929fafa9535aa2c, type: 2}
+    - {fileID: 11400000, guid: 3f5f590cac71e48daa42c581c73623ab, type: 2}
